@@ -1,12 +1,20 @@
+:root{
+    --title-color:white;
+    --background-color:rgb(249,159,250);
+    --menu-color:rgba(112,128,144,0.5);
+
+    --animation-duration: 200ms;
+}
+
 *{
     border:0;
     margin:0;
     
-    color:lavender;
+    color:var(--title-color);
 }
 
 body{
-    background: rgb(249,159,250);
+    background: var(--background-color);
     background: linear-gradient(100deg, rgba(249,159,250,1) 0%, rgba(69,234,238,1) 51%, rgba(255,62,225,1) 100%);
 }
 
@@ -24,5 +32,13 @@ nav{
 
 .menu{
     margin:0 1%;
+    padding:0.5% 5%;
+
+    background-color:var(--menu-color);
+    transition: transform var(--animation-duration) ease;
 }
 
+.menu:hover{
+    cursor:pointer;
+    transform:scale(1.1);
+}
