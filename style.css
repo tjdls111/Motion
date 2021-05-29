@@ -16,6 +16,7 @@
 body{
     background: var(--background-color);
     background: linear-gradient(100deg, rgba(249,159,250,1) 0%, rgba(69,234,238,1) 51%, rgba(255,62,225,1) 100%);
+
 }
 
 header{
@@ -42,4 +43,15 @@ nav{
 .menu:hover{
     cursor:pointer;
     transform:scale(1.1);
+}
+
+main{
+    display: flex;
+    align-items: center;
+    
+}
+
+.content{
+    margin:3%;
+    
 }
