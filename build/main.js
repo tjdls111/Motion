@@ -33,6 +33,22 @@
         };
         return Video;
     }());
+    var Text_1 = /** @class */ (function () {
+        function Text(title, body) {
+            this.title = title;
+            this.body = body;
+            this.make(body);
+        }
+        Text.prototype.make = function (body) {
+            var text = document.createElement('div');
+            text.innerText = body;
+            text.setAttribute('class', 'content');
+            text.setAttribute('class', 'text');
+            main_1 === null || main_1 === void 0 ? void 0 : main_1.appendChild(text);
+        };
+        return Text;
+    }());
     var img = new Img('good img', 'https://picsum.photos/300/200', 'good');
     var vid = new Video('fun', 'fdf', 'seventeen');
+    var text = new Text_1('hi', '일단 글씨가 들어간다.');
 }

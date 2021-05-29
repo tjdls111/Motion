@@ -55,3 +55,11 @@ main{
     margin:3%;
     
 }
+
+.text{
+    background-color: var(--title-color);
+    width:300px;
+    height:200px;
+    margin:3%;
+    color:black;
+}
