@@ -2,6 +2,13 @@
 {
     var main_1 = document.querySelector('main');
     ;
+    function addPopup() {
+        var popup = document.createElement('div');
+        popup.setAttribute('class', 'popup');
+        popup.innerHTML = "Title <br> <input type=\"text\" id=\"name\" name=\"name\" size=\"40\"> <br><br><br> Body/URL <br> <input type=\"text\" id=\"name\" name=\"name\" size='40'>";
+        main_1 === null || main_1 === void 0 ? void 0 : main_1.appendChild(popup);
+    }
+    addPopup();
     var Img_1 = /** @class */ (function () {
         function Img(title, url, body) {
             this.title = title;
@@ -22,14 +29,17 @@
             this.title = title;
             this.url = url;
             this.body = body;
-            this.make(url);
+            this.make(title, url);
         }
-        Video.prototype.make = function (url) {
+        Video.prototype.make = function (title, url) {
+            var con = document.createElement('div');
+            con.innerHTML = "<h1>" + title + "</h1>";
+            con.setAttribute('class', 'content');
             var video = document.createElement('iframe');
             video.innerHTML = '<iframe width="560" height="315" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
             video.setAttribute('src', "https://www.youtube.com/embed/ov3NRyoIEQ4");
-            video.setAttribute('class', 'content');
-            main_1 === null || main_1 === void 0 ? void 0 : main_1.appendChild(video);
+            con.appendChild(video);
+            main_1 === null || main_1 === void 0 ? void 0 : main_1.appendChild(con);
         };
         return Video;
     }());
@@ -37,12 +47,12 @@
         function Text(title, body) {
             this.title = title;
             this.body = body;
-            this.make(body);
+            this.make(title, body);
         }
-        Text.prototype.make = function (body) {
+        Text.prototype.make = function (title, body) {
             var text = document.createElement('div');
-            text.innerText = body;
-            text.setAttribute('class', 'text');
+            text.setAttribute('class', 'content text');
+            text.innerHTML = "<h1>" + title + "</h1>" + body;
             main_1 === null || main_1 === void 0 ? void 0 : main_1.appendChild(text);
         };
         return Text;
@@ -56,7 +66,7 @@
         Todo.prototype.make = function (body) {
             var todo = document.createElement('div');
             todo.innerHTML = "<label class='text'><input type=\"checkbox\" value=\"" + body + "\"> " + body + "</label>";
-            todo.setAttribute('class', 'text');
+            todo.setAttribute('class', 'content text');
             main_1 === null || main_1 === void 0 ? void 0 : main_1.appendChild(todo);
         };
         return Todo;

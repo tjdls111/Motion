@@ -51,14 +51,23 @@ main{
 }
 
 .content{
+    width:300px;
+    height:200px;
     margin:3%;
     
 }
 
 .text{
-    background-color: var(--title-color);
-    width:300px;
-    height:200px;
-    margin:3%;
     color:black;
+    background-color: var(--title-color);
+}
+
+.popup{
+    width: 500px;
+    height: 200px;
+    padding: 25px;
+    position:fixed;
+    top: 20%;
+    right: 40%;
+    background-color: var(--menu-color);
 }
