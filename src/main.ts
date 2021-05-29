@@ -13,15 +13,7 @@
         body:string;
     };
 
-    function addPopup(){
-        const popup=document.createElement('div');
-        popup.setAttribute('class','popup');
-        popup.innerHTML=`Title <br> <input type="text" id="name" name="name" size="40"> <br><br><br> Body/URL <br> <input type="text" id="name" name="name" size='40'>`;
-        main?.appendChild(popup);
 
-
-    }    
-    addPopup();
 
     
     class Img implements ContentMaker{
@@ -82,10 +74,22 @@
             const todo = document.createElement('div');
             todo.innerHTML=`<label class='text'><input type="checkbox" value="${body}"> ${body}</label>`;
             todo.setAttribute('class','content text');
-
             main?.appendChild(todo);
         }  
     }
+
+ 
+    const addPopup= function (type:string){
+        const popup=document.createElement('div');
+        popup.setAttribute('class','popup');
+        popup.innerHTML=`Title <br> <input type="text" id="name" name="name" size="40"> <br><br><br> Body/URL <br> <input type="text" id="name" name="name" size='40'>
+        <br><br><button name="button" class='btn'>Add</button>`;
+        main?.appendChild(popup);
+
+        
+    }    
+
+
    
     
     const nav=document.querySelector('nav');
@@ -93,6 +97,7 @@
         const menu:string=event.target.classList[1];
         switch(menu){
             case 'image':
+                addPopup('image');
                 const img=new Img('good img','https://picsum.photos/300/200','good');
                 break;
             case 'video':
