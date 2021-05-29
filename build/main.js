@@ -2,13 +2,6 @@
 {
     var main_1 = document.querySelector('main');
     ;
-    function addPopup() {
-        var popup = document.createElement('div');
-        popup.setAttribute('class', 'popup');
-        popup.innerHTML = "Title <br> <input type=\"text\" id=\"name\" name=\"name\" size=\"40\"> <br><br><br> Body/URL <br> <input type=\"text\" id=\"name\" name=\"name\" size='40'>";
-        main_1 === null || main_1 === void 0 ? void 0 : main_1.appendChild(popup);
-    }
-    addPopup();
     var Img_1 = /** @class */ (function () {
         function Img(title, url, body) {
             this.title = title;
@@ -71,11 +64,18 @@
         };
         return Todo;
     }());
+    var addPopup_1 = function (type) {
+        var popup = document.createElement('div');
+        popup.setAttribute('class', 'popup');
+        popup.innerHTML = "Title <br> <input type=\"text\" id=\"name\" name=\"name\" size=\"40\"> <br><br><br> Body/URL <br> <input type=\"text\" id=\"name\" name=\"name\" size='40'>\n        <br><br><button name=\"button\" class='btn'>Add</button>";
+        main_1 === null || main_1 === void 0 ? void 0 : main_1.appendChild(popup);
+    };
     var nav = document.querySelector('nav');
     nav === null || nav === void 0 ? void 0 : nav.addEventListener('click', function (event) {
         var menu = event.target.classList[1];
         switch (menu) {
             case 'image':
+                addPopup_1('image');
                 var img = new Img_1('good img', 'https://picsum.photos/300/200', 'good');
                 break;
             case 'video':

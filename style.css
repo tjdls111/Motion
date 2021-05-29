@@ -71,3 +71,11 @@ main{
     right: 40%;
     background-color: var(--menu-color);
 }
+
+.btn{
+    color:black;
+}
+
+.btn:hover{
+    cursor:pointer;
+}
