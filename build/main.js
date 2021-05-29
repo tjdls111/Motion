@@ -2,7 +2,7 @@
 {
     var main_1 = document.querySelector('main');
     ;
-    var Img = /** @class */ (function () {
+    var Img_1 = /** @class */ (function () {
         function Img(title, url, body) {
             this.title = title;
             this.url = url;
@@ -17,7 +17,7 @@
         };
         return Img;
     }());
-    var Video = /** @class */ (function () {
+    var Video_1 = /** @class */ (function () {
         function Video(title, url, body) {
             this.title = title;
             this.url = url;
@@ -47,7 +47,7 @@
         };
         return Text;
     }());
-    var Todo = /** @class */ (function () {
+    var Todo_1 = /** @class */ (function () {
         function Todo(title, body) {
             this.title = title;
             this.body = body;
@@ -61,8 +61,22 @@
         };
         return Todo;
     }());
-    var img = new Img('good img', 'https://picsum.photos/300/200', 'good');
-    var vid = new Video('fun', 'fdf', 'seventeen');
-    var text = new Text_1('hi', '일단 글씨가 들어간다.');
-    var todo = new Todo('hi', '할일~~');
+    var nav = document.querySelector('nav');
+    nav === null || nav === void 0 ? void 0 : nav.addEventListener('click', function (event) {
+        var menu = event.target.classList[1];
+        switch (menu) {
+            case 'image':
+                var img = new Img_1('good img', 'https://picsum.photos/300/200', 'good');
+                break;
+            case 'video':
+                var vid = new Video_1('fun', 'fdf', 'seventeen');
+                break;
+            case 'note':
+                var text = new Text_1('hi', '일단 글씨가 들어간다.');
+                break;
+            case 'task':
+                var todo = new Todo_1('hi', '할일~~');
+                break;
+        }
+    });
 }

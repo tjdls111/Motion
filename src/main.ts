@@ -70,12 +70,27 @@
             main?.appendChild(todo);
         }  
     }
-
-
-    const img=new Img('good img','https://picsum.photos/300/200','good');
-    const vid=new Video('fun','fdf','seventeen');
-    const text=new Text('hi','일단 글씨가 들어간다.');
-    const todo=new Todo('hi','할일~~');
+   
     
-    
+    const nav=document.querySelector('nav');
+    nav?.addEventListener('click',(event)=>{
+        const menu=event.target.classList[1];
+        switch(menu){
+            case 'image':
+                const img=new Img('good img','https://picsum.photos/300/200','good');
+                break;
+            case 'video':
+                const vid=new Video('fun','fdf','seventeen');
+                break;
+            case 'note':
+                const text=new Text('hi','일단 글씨가 들어간다.');
+                break;
+            case 'task':
+                const todo=new Todo('hi','할일~~');
+                break;
+
+        }
+        
+    });
+
 }
