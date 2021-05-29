@@ -1,13 +1,28 @@
 *{
     border:0;
     margin:0;
+    
+    color:lavender;
+}
+
+body{
+    background: rgb(249,159,250);
+    background: linear-gradient(100deg, rgba(249,159,250,1) 0%, rgba(69,234,238,1) 51%, rgba(255,62,225,1) 100%);
 }
 
 header{
     text-align: center;
 }
 
+.title{
+    margin:2%;
+}
 nav{
     display:flex;
     justify-content: space-around;
 }
+
+.menu{
+    margin:0 1%;
+}
+
