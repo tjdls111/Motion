@@ -52,19 +52,30 @@
         make(body:string){
             const text = document.createElement('div');
             text.innerText=body;
-            text.setAttribute('class','content')
             text.setAttribute('class','text')
             main?.appendChild(text);
         }  
     }
 
 
+    class Todo implements ContentMaker{
+        constructor(readonly title:string, readonly body:string){
+            this.make(body);
+        }
+    
+        make(body:string){
+            const todo = document.createElement('div');
+            todo.innerHTML=`<label class='text'><input type="checkbox" value="${body}"> ${body}</label>`;
+            todo.setAttribute('class','text')
+            main?.appendChild(todo);
+        }  
+    }
 
 
     const img=new Img('good img','https://picsum.photos/300/200','good');
     const vid=new Video('fun','fdf','seventeen');
     const text=new Text('hi','일단 글씨가 들어간다.');
-    
+    const todo=new Todo('hi','할일~~');
     
     
 }
