@@ -5,5 +5,7 @@
 ![1](https://user-images.githubusercontent.com/68271159/120071429-61b34f00-c0ca-11eb-8772-469bf0d05360.png)
 ![2](https://user-images.githubusercontent.com/68271159/120071428-5fe98b80-c0ca-11eb-8f85-d92ad0f09a98.png)
 ![4](https://user-images.githubusercontent.com/68271159/120071432-61b34f00-c0ca-11eb-8bb0-42f1370d2021.png)
+![6](https://user-images.githubusercontent.com/68271159/120071551-e56d3b80-c0ca-11eb-821c-65439c6b0a46.png)
+
 
 - 이미지 출처: unsplash
