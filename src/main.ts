@@ -16,14 +16,23 @@
 
     class Img implements ContentMaker{
         constructor(readonly title:string,readonly url:string){
-            this.make(url);
+            this.make(title,url);
         }
     
-        make(url:string){
+        make(title:string,url:string){
+            const con=document.createElement('div');
+            con.innerHTML=`<h1>${title}</h1>`;
+            con.setAttribute('class','content');
+
             const img = document.createElement('img');
             img.setAttribute('src',url);
-            img.setAttribute('class','content');
-            main?.appendChild(img);
+            const delBtn=document.createElement('button');
+            delBtn.setAttribute('class','delBtn');
+            delBtn.innerText='Remove';
+            
+            con.appendChild(img);
+            con.appendChild(delBtn);
+            main?.appendChild(con);
         }  
     }
 
@@ -40,9 +49,13 @@
             const video = document.createElement('iframe');
             video.innerHTML='<iframe width="560" height="315" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
             video.setAttribute('src',url);
-            
 
+            const delBtn=document.createElement('button');
+            delBtn.setAttribute('class','delBtn');
+            delBtn.innerText='Remove';
+            
             con.appendChild(video);
+            con.appendChild(delBtn);
             main?.appendChild(con);
         }  
     }
@@ -54,25 +67,46 @@
         }
     
         make(title:string,body:string){
+            const con=document.createElement('div');  
+            con.innerHTML=`<h1>${title}</h1>`;
+            con.setAttribute('class','content text');
+            
             const text=document.createElement('div');
-            text.setAttribute('class','content text');
-            text.innerHTML=`<h1>${title}</h1>${body}`;
+            text.setAttribute('class','text');
+            text.innerHTML=body;
 
-            main?.appendChild(text);
+            const delBtn=document.createElement('button');
+            delBtn.setAttribute('class','delBtn');
+            delBtn.innerText='Remove';
+            
+            con.appendChild(text);
+            con.appendChild(delBtn);
+            main?.appendChild(con);
         }  
     }
 
 
     class Todo implements ContentMaker{
         constructor(readonly title:string, readonly body:string){
-            this.make(body);
+            this.make(title,body);
         }
     
-        make(body:string){
+        make(title:string,body:string){
+            const con=document.createElement('div');
+            con.innerHTML=`<h1>${title}</h1>`;
+            con.setAttribute('class','content');
+
             const todo = document.createElement('div');
             todo.innerHTML=`<label class='text'><input type="checkbox" value="${body}"> ${body}</label>`;
             todo.setAttribute('class','content text');
-            main?.appendChild(todo);
+
+            const delBtn=document.createElement('button');
+            delBtn.setAttribute('class','delBtn');
+            delBtn.innerText='Remove';
+            
+            con.appendChild(todo);
+            con.appendChild(delBtn);
+            main?.appendChild(con);
         }  
     }
 
@@ -121,4 +155,16 @@
        
     });
 
-}
+    main?.addEventListener('click',(event)=>{
+        console.log(event);
+        if (event.target.className=='delBtn'){
+            console.log('remove');
+            console.log(event.target.parentElement);
+            
+            main.removeChild(event.target.parentElement);  
+        }
+
+        
+    });
+
+}  

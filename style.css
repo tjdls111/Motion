@@ -2,6 +2,7 @@
     --title-color:white;
     --background-color:rgb(249,159,250);
     --menu-color:rgba(112,128,144,0.5);
+    --text-color:black;
 
     --animation-duration: 200ms;
 }
@@ -53,16 +54,17 @@ main{
 }
 
 
-.content{
+.content{ 
     width:300px;
     height:200px;
-    margin:3%;
+    margin:5%;
     
 }
 
 .text{
-    color:black;
     background-color: var(--title-color);
+    color:var(--text-color);
+    
 }
 
 .popup{
@@ -76,7 +78,7 @@ main{
 }
 
 .btn{
-    color:black;
+    color:var(--text-color);
 }
 
 .btn:hover{
@@ -84,5 +86,13 @@ main{
 }
 
 input{
-    color:black;
+    color:var(--text-color);
+}
+
+.delBtn{
+    outline: none;
+    background-color: var(--menu-color);
+    color: var(--title-color);
+    font-size: 20px;
+    cursor: pointer
 }

@@ -6,13 +6,20 @@
         function Img(title, url) {
             this.title = title;
             this.url = url;
-            this.make(url);
+            this.make(title, url);
         }
-        Img.prototype.make = function (url) {
+        Img.prototype.make = function (title, url) {
+            var con = document.createElement('div');
+            con.innerHTML = "<h1>" + title + "</h1>";
+            con.setAttribute('class', 'content');
             var img = document.createElement('img');
             img.setAttribute('src', url);
-            img.setAttribute('class', 'content');
-            main_1 === null || main_1 === void 0 ? void 0 : main_1.appendChild(img);
+            var delBtn = document.createElement('button');
+            delBtn.setAttribute('class', 'delBtn');
+            delBtn.innerText = 'Remove';
+            con.appendChild(img);
+            con.appendChild(delBtn);
+            main_1 === null || main_1 === void 0 ? void 0 : main_1.appendChild(con);
         };
         return Img;
     }());
@@ -29,7 +36,11 @@
             var video = document.createElement('iframe');
             video.innerHTML = '<iframe width="560" height="315" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
             video.setAttribute('src', url);
+            var delBtn = document.createElement('button');
+            delBtn.setAttribute('class', 'delBtn');
+            delBtn.innerText = 'Remove';
             con.appendChild(video);
+            con.appendChild(delBtn);
             main_1 === null || main_1 === void 0 ? void 0 : main_1.appendChild(con);
         };
         return Video;
@@ -41,10 +52,18 @@
             this.make(title, body);
         }
         Text.prototype.make = function (title, body) {
+            var con = document.createElement('div');
+            con.innerHTML = "<h1>" + title + "</h1>";
+            con.setAttribute('class', 'content text');
             var text = document.createElement('div');
-            text.setAttribute('class', 'content text');
-            text.innerHTML = "<h1>" + title + "</h1>" + body;
-            main_1 === null || main_1 === void 0 ? void 0 : main_1.appendChild(text);
+            text.setAttribute('class', 'text');
+            text.innerHTML = body;
+            var delBtn = document.createElement('button');
+            delBtn.setAttribute('class', 'delBtn');
+            delBtn.innerText = 'Remove';
+            con.appendChild(text);
+            con.appendChild(delBtn);
+            main_1 === null || main_1 === void 0 ? void 0 : main_1.appendChild(con);
         };
         return Text;
     }());
@@ -52,13 +71,21 @@
         function Todo(title, body) {
             this.title = title;
             this.body = body;
-            this.make(body);
+            this.make(title, body);
         }
-        Todo.prototype.make = function (body) {
+        Todo.prototype.make = function (title, body) {
+            var con = document.createElement('div');
+            con.innerHTML = "<h1>" + title + "</h1>";
+            con.setAttribute('class', 'content');
             var todo = document.createElement('div');
             todo.innerHTML = "<label class='text'><input type=\"checkbox\" value=\"" + body + "\"> " + body + "</label>";
             todo.setAttribute('class', 'content text');
-            main_1 === null || main_1 === void 0 ? void 0 : main_1.appendChild(todo);
+            var delBtn = document.createElement('button');
+            delBtn.setAttribute('class', 'delBtn');
+            delBtn.innerText = 'Remove';
+            con.appendChild(todo);
+            con.appendChild(delBtn);
+            main_1 === null || main_1 === void 0 ? void 0 : main_1.appendChild(con);
         };
         return Todo;
     }());
@@ -95,5 +122,13 @@
     nav === null || nav === void 0 ? void 0 : nav.addEventListener('click', function (event) {
         var menu = event.target.classList[1];
         addPopup_1(menu);
+    });
+    main_1 === null || main_1 === void 0 ? void 0 : main_1.addEventListener('click', function (event) {
+        console.log(event);
+        if (event.target.className == 'delBtn') {
+            console.log('remove');
+            console.log(event.target.parentElement);
+            main_1.removeChild(event.target.parentElement);
+        }
     });
 }
